@@ -102,7 +102,7 @@ object from GISCO API entry point or your local library." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html"><img src="../logo.png" alt="giscoR-logo" id="navbar-logo">giscoR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.4-9000</span>
       </span>
     </div>
 
@@ -309,8 +309,10 @@ for debugging, default if <code>FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>region</th>
-      <td><p>Optional. A character vector of UN M49 region codes.
-Possible values are "Africa", "Americas", "Asia", "Europe", "Oceania".
+      <td><p>Optional. A character vector of UN M49 region codes or
+European Union membership.
+Possible values are "Africa", "Americas", "Asia", "Europe", "Oceania" or
+"EU" for countries belonging to the European Union (as per 2021).
  See Details and <a href='gisco_countrycode.html'>gisco_countrycode</a></p></td>
     </tr>
     <tr>
@@ -358,6 +360,12 @@ set <code>cache_dir = "path/to/dir"</code> or
 <code>options(gisco_cache_dir = "path/to/dir)"</code>.</p>
 <p>For a complete list of files available check
 <a href='gisco_db.html'>gisco_db</a>.</p>
+<p><strong>About world regions</strong></p>
+<p>Regions are defined as per the geographic regions defined by the
+UN (see
+<a href='https://unstats.un.org/unsd/methodology/m49/'>M49 region codes</a>.
+Note that under this scheme Cyprus is assigned to Asia. You may use
+<code>region = "EU"</code> to get the EU members (reference date: 2021).</p>
 <p><strong>Release years available</strong></p>
 <p><code>gisco_get_coastallines</code>: one of
 <code>"2006", "2010", "2013"</code> or <code>"2016"</code>.</p>
