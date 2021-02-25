@@ -1,6 +1,7 @@
 
 if (requireNamespace("tinytest", quietly = TRUE)) {
-  home <- !identical(Sys.getenv("NOT_CRAN"), "true")
+  # Set home in dev mode
+  home <- length(unclass(packageVersion("giscoR"))[[1]]) == 4
 
   if (home) {
     message("Full Testing")

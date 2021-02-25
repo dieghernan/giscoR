@@ -1,6 +1,6 @@
 library(tinytest)
 
-# Test only at home
+# Test only in dev version - i.e. PKG version with 4 digits
 
 
 if (at_home()) {
