@@ -1,10 +1,9 @@
 library(tinytest)
 
-# Test only in dev mode
+# Test only at home
 
-test <- TRUE
 
-if (test) {
+if (at_home()) {
   expect_silent(gisco_bulk_download(resolution = 60))
   expect_message(gisco_bulk_download(resolution = 60, verbose = TRUE))
   expect_message(gisco_bulk_download(

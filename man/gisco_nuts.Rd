@@ -9,17 +9,17 @@
 A \code{POLYGON} data frame
 (resolution: 1:20million, EPSG:4326) object with 11 variables:
 \describe{
-  \item{id}{row ID}
-  \item{COAST_TYPE}{COAST_TYPE}
-  \item{MOUNT_TYPE}{MOUNT_TYPE}
-  \item{NAME_LATN}{Name on Latin characters}
-  \item{CNTR_CODE}{Eurostat Country code}
-  \item{FID}{FID}
-  \item{NUTS_ID}{NUTS identifier}
-  \item{NUTS_NAME}{NUTS name on local alphabet}
-  \item{LEVL_CODE}{NUTS level code (0,1,2,3)}
-  \item{URBN_TYPE}{URBN_TYPE}
-  \item{geometry}{geometry field}
+\item{id}{row ID}
+\item{COAST_TYPE}{COAST_TYPE}
+\item{MOUNT_TYPE}{MOUNT_TYPE}
+\item{NAME_LATN}{Name on Latin characters}
+\item{CNTR_CODE}{Eurostat Country code}
+\item{FID}{FID}
+\item{NUTS_ID}{NUTS identifier}
+\item{NUTS_NAME}{NUTS name on local alphabet}
+\item{LEVL_CODE}{NUTS level code (0,1,2,3)}
+\item{URBN_TYPE}{URBN_TYPE}
+\item{geometry}{geometry field}
 }
 }
 \source{

@@ -25,7 +25,7 @@ downloaded with this package
 Current languages supported are "en" (English), "da"
 (Danish), "de" (German),
 "es" (Spanish), "fi" (Finish), "fr" (French), "no" (Norwegian) and
- "sv" (Swedish).
+"sv" (Swedish).
 
 Consider contributing if you spot any mistake or want to add a new language.
 }
@@ -33,7 +33,7 @@ Consider contributing if you spot any mistake or want to add a new language.
 COPYRIGHT NOTICE
 
 When data downloaded from
- \href{https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units}{this page}
+\href{https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units}{this page}
 is used in any printed or electronic publication,
 in addition to any other provisions
 applicable to the whole Eurostat website,
@@ -42,9 +42,9 @@ in the legend of the map and
 in the introductory page of the publication
 with the following copyright notice:
 \itemize{
-	\item EN: (C) EuroGeographics for the administrative boundaries
-	\item FR: (C) EuroGeographics pour les limites administratives
-	\item DE: (C) EuroGeographics bezüglich der Verwaltungsgrenzen
+\item EN: (C) EuroGeographics for the administrative boundaries
+\item FR: (C) EuroGeographics pour les limites administratives
+\item DE: (C) EuroGeographics bezüglich der Verwaltungsgrenzen
 }
 For publications in languages other than
 English, French or German,

@@ -8,21 +8,21 @@ and world regions}
 \format{
 A data frame object with 249 rows and 12 variables:
 \describe{
-  \item{CNTR_CODE}{Eurostat code of each country}
-  \item{iso2c}{ISO 3166-1 alpha-2 code of each country}
-  \item{ISO3_CODE}{ISO 3166-1 alpha-3 code of each country}
-  \item{iso.name.en}{ISO English short name}
-  \item{cldr.short.en}{English short name as provided by the
-  \href{http://cldr.unicode.org/translation/displaynames/country-names}{Unicode Common Locale Data Repository}}
-  \item{continent}{As provided by the World Bank}
-  \item{un.region.code}{Numeric region code UN (M49)}
-  \item{un.region.name}{Region name UN (M49)}
-  \item{un.regionintermediate.code}{Numeric intermediate Region
-   code UN (M49)}
-  \item{un.regionintermediate.name}{Intermediate Region name UN (M49)}
-  \item{un.regionsub.code}{Numeric sub-region code UN (M49)}
-  \item{un.regionsub.name}{Sub-Region name UN (M49)}
-  \item{eu}{Logical indicating if the country belongs to the European Union as per February 2021.}
+\item{CNTR_CODE}{Eurostat code of each country}
+\item{iso2c}{ISO 3166-1 alpha-2 code of each country}
+\item{ISO3_CODE}{ISO 3166-1 alpha-3 code of each country}
+\item{iso.name.en}{ISO English short name}
+\item{cldr.short.en}{English short name as provided by the
+\href{http://cldr.unicode.org/translation/displaynames/country-names}{Unicode Common Locale Data Repository}}
+\item{continent}{As provided by the World Bank}
+\item{un.region.code}{Numeric region code UN (M49)}
+\item{un.region.name}{Region name UN (M49)}
+\item{un.regionintermediate.code}{Numeric intermediate Region
+code UN (M49)}
+\item{un.regionintermediate.name}{Intermediate Region name UN (M49)}
+\item{un.regionsub.code}{Numeric sub-region code UN (M49)}
+\item{un.regionsub.name}{Sub-Region name UN (M49)}
+\item{eu}{Logical indicating if the country belongs to the European Union as per February 2021.}
 }
 }
 \source{

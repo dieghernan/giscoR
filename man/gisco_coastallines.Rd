@@ -6,11 +6,11 @@
 \title{World coastal lines \code{POLYGON} object}
 \format{
 A \code{POLYGON} data frame (resolution: 1:20million, EPSG:4326)
- object with 8 variables:
+object with 8 variables:
 \describe{
-  \item{FID}{FID}
-  \item{COAS_ID}{COAS_ID}
-  \item{geometry}{geometry field}
+\item{FID}{FID}
+\item{COAS_ID}{COAS_ID}
+\item{geometry}{geometry field}
 }
 }
 \source{
