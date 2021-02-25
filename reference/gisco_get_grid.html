@@ -105,7 +105,7 @@ as population figures are provided for these cells." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html"><img src="../logo.png" alt="giscoR-logo" id="navbar-logo">giscoR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.4-9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.3.9000</span>
       </span>
     </div>
 
@@ -227,10 +227,11 @@ need to confirm the download.</p>
     <pre class="examples"><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://r-spatial.github.io/sf/'>sf</a></span><span class='op'>)</span>
 
 <span class='va'>grid</span> <span class='op'>&lt;-</span> <span class='fu'>gisco_get_grid</span><span class='op'>(</span>resolution <span class='op'>=</span> <span class='fl'>20</span><span class='op'>)</span>
-<span class='va'>grid</span><span class='op'>$</span><span class='va'>popdens</span> <span class='op'>&lt;-</span> <span class='va'>grid</span><span class='op'>$</span><span class='va'>TOT_P_2011</span><span class='op'>/</span><span class='fl'>20</span>
+<span class='va'>grid</span><span class='op'>$</span><span class='va'>popdens</span> <span class='op'>&lt;-</span> <span class='va'>grid</span><span class='op'>$</span><span class='va'>TOT_P_2011</span> <span class='op'>/</span> <span class='fl'>20</span>
 
 <span class='va'>breaks</span> <span class='op'>&lt;-</span>
-  <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,
+  <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
+    <span class='fl'>0</span>,
     <span class='fl'>500</span>,
     <span class='fl'>1000</span>,
     <span class='fl'>2500</span>,
@@ -238,13 +239,14 @@ need to confirm the download.</p>
     <span class='fl'>10000</span>,
     <span class='fl'>25000</span>,
     <span class='fl'>50000</span>,
-    <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>grid</span><span class='op'>$</span><span class='va'>popdens</span><span class='op'>)</span> <span class='op'>+</span> <span class='fl'>1</span><span class='op'>)</span>
+    <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>grid</span><span class='op'>$</span><span class='va'>popdens</span><span class='op'>)</span> <span class='op'>+</span> <span class='fl'>1</span>
+  <span class='op'>)</span>
 
-<span class='va'>pal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>hcl.colors</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>breaks</span><span class='op'>)</span><span class='op'>-</span><span class='fl'>2</span>, palette <span class='op'>=</span> <span class='st'>"inferno"</span>, alpha <span class='op'>=</span> <span class='fl'>0.7</span><span class='op'>)</span>
-<span class='va'>pal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"black"</span>,<span class='va'>pal</span><span class='op'>)</span>
+<span class='va'>pal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>hcl.colors</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>breaks</span><span class='op'>)</span> <span class='op'>-</span> <span class='fl'>2</span>, palette <span class='op'>=</span> <span class='st'>"inferno"</span>, alpha <span class='op'>=</span> <span class='fl'>0.7</span><span class='op'>)</span>
+<span class='va'>pal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"black"</span>, <span class='va'>pal</span><span class='op'>)</span>
 
 <span class='va'>opar</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span>no.readonly <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span>mar<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>0</span><span class='op'>)</span>, bg <span class='op'>=</span> <span class='st'>"grey2"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span>mar <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span><span class='op'>)</span>, bg <span class='op'>=</span> <span class='st'>"grey2"</span><span class='op'>)</span>
 <span class='fu'><a href='https://r-spatial.github.io/sf/reference/plot.html'>plot</a></span><span class='op'>(</span>
   <span class='va'>grid</span><span class='op'>[</span>, <span class='st'>"popdens"</span><span class='op'>]</span>,
   pal <span class='op'>=</span> <span class='va'>pal</span>,
@@ -252,7 +254,7 @@ need to confirm the download.</p>
   breaks <span class='op'>=</span> <span class='va'>breaks</span>,
   main <span class='op'>=</span> <span class='cn'>NA</span>,
   xlim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2500000</span>, <span class='fl'>7000000</span><span class='op'>)</span>,
-  ylim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1500000</span> , <span class='fl'>5200000</span><span class='op'>)</span>,
+  ylim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1500000</span>, <span class='fl'>5200000</span><span class='op'>)</span>,
   border <span class='op'>=</span> <span class='cn'>NA</span>
 <span class='op'>)</span>
 </div><div class='img'><img src='gisco_get_grid-1.png' alt='' width='701' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span><span class='va'>opar</span><span class='op'>)</span>
