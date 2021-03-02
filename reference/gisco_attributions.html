@@ -55,8 +55,8 @@
   
 
 <meta property="og:title" content="Attribution when publishing GISCO data — gisco_attributions" />
-<meta property="og:description" content="Get the legal text to be used along with the data
-downloaded with this package" />
+<meta property="og:description" content="Get the legal text to be used along with the data downloaded with this
+package" />
 <meta property="og:image" content="https://dieghernan.github.io/giscoR/logo.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@dhernangomez" />
@@ -168,8 +168,8 @@ downloaded with this package" />
     </div>
 
     <div class="ref-description">
-    <p>Get the legal text to be used along with the data
-downloaded with this package</p>
+    <p>Get the legal text to be used along with the data downloaded with this
+package</p>
     </div>
 
     <pre class="usage"><span class='fu'>gisco_attributions</span><span class='op'>(</span>lang <span class='op'>=</span> <span class='st'>"en"</span>, copyright <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
@@ -179,14 +179,12 @@ downloaded with this package</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>lang</th>
-      <td><p>Language (two-letter
-<a href='https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes'>ISO_639-1</a>
-code). See details.</p></td>
+      <td><p>Language (two-letter ISO code). See
+<a href='https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes'>https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes</a> and Details.</p></td>
     </tr>
     <tr>
       <th>copyright</th>
-      <td><p>Boolean. Whether to display the copyright notice or
-not on the console.</p></td>
+      <td><p>Boolean. Whether to display the copyright notice or not on the console.</p></td>
     </tr>
     </table>
 
@@ -195,16 +193,22 @@ not on the console.</p></td>
     <p>A string with the attribution to be used.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>Current languages supported are "en" (English), "da"
-(Danish), "de" (German),
-"es" (Spanish), "fi" (Finish), "fr" (French), "no" (Norwegian) and
- "sv" (Swedish).</p>
+    <p>Current languages supported are:</p><ul>
+<li><p>"en" - English</p></li>
+<li><p>"da" - Danish</p></li>
+<li><p>"de" - German</p></li>
+<li><p>"es" - Spanish</p></li>
+<li><p>"fi" - Finish</p></li>
+<li><p>"fr" - French</p></li>
+<li><p>"no" - Norwegian</p></li>
+<li><p>"sv" - Swedish</p></li>
+</ul>
+
 <p>Consider contributing if you spot any mistake or want to add a new language.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
     <p>COPYRIGHT NOTICE</p>
-<p>When data downloaded from
- <a href='https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units'>this page</a>
+<p>When data downloaded from GISCO
 is used in any printed or electronic publication,
 in addition to any other provisions
 applicable to the whole Eurostat website,
@@ -214,8 +218,10 @@ in the introductory page of the publication
 with the following copyright notice:</p><ul>
 <li><p>EN: (C) EuroGeographics for the administrative boundaries</p></li>
 <li><p>FR: (C) EuroGeographics pour les limites administratives</p></li>
-<li><p>DE: (C) EuroGeographics bezüglich der Verwaltungsgrenzen</p></li>
-</ul><p>For publications in languages other than
+<li><p>DE: (C) EuroGeographics bezuglich der Verwaltungsgrenzen</p></li>
+</ul>
+
+<p>For publications in languages other than
 English, French or German,
 the translation of the copyright notice
 in the language of the publication shall be used.</p>
@@ -225,12 +231,12 @@ information regarding their licence agreements.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>en</span> <span class='op'>&lt;-</span> <span class='fu'>gisco_attributions</span><span class='op'>(</span><span class='op'>)</span>
+
 <span class='fu'>gisco_attributions</span><span class='op'>(</span>lang <span class='op'>=</span> <span class='st'>"es"</span>, copyright <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='message'></span>
 #&gt; <span class='message'>    COPYRIGHT NOTICE</span>
 #&gt; <span class='message'></span>
-#&gt; <span class='message'>    When data downloaded from this page</span>
-#&gt; <span class='message'>    &lt;https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units&gt;</span>
+#&gt; <span class='message'>    When data downloaded from GISCO</span>
 #&gt; <span class='message'>    is used in any printed or electronic publication,</span>
 #&gt; <span class='message'>    in addition to any other provisions applicable to</span>
 #&gt; <span class='message'>    the whole Eurostat website, data source will have</span>
@@ -251,7 +257,8 @@ information regarding their licence agreements.</p>
 #&gt; <span class='message'>    contact EuroGeographics for information regarding</span>
 #&gt; <span class='message'>    their licence agreements.</span>
 #&gt; <span class='message'></span>
-#&gt; <span class='message'>      </span></div><div class='output co'>#&gt; [1] "© Eurogeographics para los límites administrativos"</div><div class='input'><span class='fu'>gisco_attributions</span><span class='op'>(</span>lang <span class='op'>=</span> <span class='st'>"XXX"</span><span class='op'>)</span>
+#&gt; <span class='message'>      </span></div><div class='output co'>#&gt; [1] "© Eurogeographics para los límites administrativos"</div><div class='input'>
+<span class='fu'>gisco_attributions</span><span class='op'>(</span>lang <span class='op'>=</span> <span class='st'>"XXX"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "Language not supported, switching to English. Consider contributing"</div><div class='output co'>#&gt; [1] "© EuroGeographics for the administrative boundaries"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

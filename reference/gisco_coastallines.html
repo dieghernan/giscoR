@@ -174,23 +174,24 @@
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A <code>POLYGON</code> data frame (resolution: 1:20million, EPSG:4326)
- object with 8 variables:</p><dl>
-  <dt>FID</dt><dd><p>FID</p></dd>
-  <dt>COAS_ID</dt><dd><p>COAS_ID</p></dd>
-  <dt>geometry</dt><dd><p>geometry field</p></dd>
-
-</dl>
+    <p>A <code>POLYGON</code> data frame (resolution: 1:20million, EPSG:4326) object with
+3 variables:</p><ul>
+<li><p><strong>FID</strong></p></li>
+<li><p><strong>COAS_ID</strong></p></li>
+<li><p><strong>geometry</strong>: geometry field</p></li>
+</ul>
 
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
-    <p><a href='https://gisco-services.ec.europa.eu/distribution/v2/coas/geojson/COAS_RG_20M_2016_4326.geojson'>GISCO .geojson source</a></p>
+    <p><a href='https://gisco-services.ec.europa.eu/distribution/v2/coas/geojson/'>https://gisco-services.ec.europa.eu/distribution/v2/coas/geojson/</a>
+<code>COAS_RG_20M_2016_4326.geojson</code> file.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><a href='gisco_get.html'>gisco_get_coastallines</a></p></div>
+    <div class='dont-index'><p><code><a href='gisco_get.html'>gisco_get_coastallines()</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://r-spatial.github.io/sf/'>sf</a></span><span class='op'>)</span>
+    <pre class="examples"><div class='input'>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://r-spatial.github.io/sf/'>sf</a></span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='message'>Linking to GEOS 3.8.1, GDAL 3.1.4, PROJ 6.3.1</span></div><div class='input'>
 <span class='va'>coasts</span> <span class='op'>&lt;-</span> <span class='va'>gisco_coastallines</span>
 

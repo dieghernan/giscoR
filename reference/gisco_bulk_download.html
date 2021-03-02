@@ -55,8 +55,7 @@
   
 
 <meta property="og:title" content="Bulk download from GISCO API — gisco_bulk_download" />
-<meta property="og:description" content="Downloads zipped data from GISCO and extract them on the
-cache_dir folder." />
+<meta property="og:description" content="Downloads zipped data from GISCO and extract them on the cache_dir folder." />
 <meta property="og:image" content="https://dieghernan.github.io/giscoR/logo.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@dhernangomez" />
@@ -168,8 +167,7 @@ cache_dir folder." />
     </div>
 
     <div class="ref-description">
-    <p>Downloads zipped data from GISCO and extract them on the
-<code>cache_dir</code> folder.</p>
+    <p>Downloads zipped data from GISCO and extract them on the <code>cache_dir</code> folder.</p>
     </div>
 
     <pre class="usage"><span class='fu'>gisco_bulk_download</span><span class='op'>(</span>
@@ -188,36 +186,71 @@ cache_dir folder." />
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>id_giscoR</th>
-      <td><p>Type of dataset to be downloaded. Values supported are
-<code>"coastallines", </code>
-<code>"communes", "countries", "lau", "nuts", "urban_audit"</code>.</p></td>
+      <td><p>Type of dataset to be downloaded. Values supported are:</p><ul>
+<li><p>"coastallines"</p></li>
+<li><p>"communes"</p></li>
+<li><p>"countries"</p></li>
+<li><p>"lau"</p></li>
+<li><p>"nuts"</p></li>
+<li><p>"urban_audit"</p></li>
+</ul></td>
     </tr>
     <tr>
-      <th>year, cache_dir, update_cache, verbose, resolution</th>
-      <td><p>See <a href='gisco_get.html'>gisco_get</a>
-for details.</p></td>
+      <th>year</th>
+      <td><p>Release year. See Details.</p></td>
+    </tr>
+    <tr>
+      <th>cache_dir</th>
+      <td><p>a path to a cache directory.
+The directory have to exist.  The <code>NULL</code> (default) uses
+and creates <code>/gisco</code> directory in the temporary directory
+from <code><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></code>. The directory can also be
+set with <code><a href='https://rdrr.io/r/base/options.html'>options(gisco_cache_dir = "path/to/dir")</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>update_cache</th>
+      <td><p>a logical whether
+to update cache. Default is <code>FALSE</code>. When set
+to <code>TRUE</code> it would force a fresh download
+of the source <code>.geojson</code> file.</p></td>
+    </tr>
+    <tr>
+      <th>verbose</th>
+      <td><p>Display information. Useful
+for debugging, default if <code>FALSE</code>.</p></td>
+    </tr>
+    <tr>
+      <th>resolution</th>
+      <td><p>Resolution of the geospatial data. One of</p><ul>
+<li><p><code>"60"</code> (1:60million),</p></li>
+<li><p><code>"20"</code> (1:20million)</p></li>
+<li><p><code>"10"</code> (1:10million)</p></li>
+<li><p><code>"03"</code> (1:3million) or</p></li>
+<li><p><code>"01"</code> (1:1million).</p></li>
+</ul></td>
     </tr>
     <tr>
       <th>ext</th>
       <td><p>Extension of the file(s) to be downloaded. Available formats are
-<code>"geojson",</code><code> "shp", "svg", "json", "gdb"</code>. See Details.</p></td>
+"geojson", "shp", "svg", "json", "gdb". See Details.</p></td>
     </tr>
     <tr>
       <th>recursive</th>
       <td><p>Tries to unzip recursively the zip files (if any) included
-in the initial bulk download (case of <code>ext = "shp"</code>).</p></td>
+in the initial bulk download (case of <code>ext = "shp"</code>.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
-    <p><a href='https://gisco-services.ec.europa.eu/distribution/v2/'>GISCO API</a></p>
+    <p><a href='https://gisco-services.ec.europa.eu/distribution/v2/'>https://gisco-services.ec.europa.eu/distribution/v2/</a></p>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>Silent function.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>The usual extension used across <span class="pkg">giscoR</span> is <code>geojson</code>,
+    <p>See the years available in <a href='gisco_get.html'>gisco_get</a></p>
+<p>The usual extension used across <strong>giscoR</strong> is "geojson",
 however other formats are already available on GISCO.</p>
 <p>This function helps building a personal shape library on <code>cache_dir</code>
 (or <code><a href='https://rdrr.io/r/base/options.html'>options(gisco_cache_dir = "path/to/dir")</a></code>, if set by the user).</p>
@@ -227,7 +260,8 @@ however other formats are already available on GISCO.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='co'># Countries 2016</span>
+
+<span class='co'># Countries 2016 - It would take some time</span>
 <span class='fu'>gisco_bulk_download</span><span class='op'>(</span>id_giscoR <span class='op'>=</span> <span class='st'>"countries"</span>, resolution <span class='op'>=</span> <span class='st'>"60"</span><span class='op'>)</span>
 <span class='op'>}</span>
 </div></pre>
