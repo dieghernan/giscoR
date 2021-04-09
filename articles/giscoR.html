@@ -142,7 +142,8 @@
 <h1 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h1>
 <p>Install <code>giscoR</code> from <a href="https://CRAN.R-project.org/package=giscoR"><strong>CRAN</strong></a>:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">install.packages</span>(“giscoR”)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"giscoR"</span><span class="op">)</span></code></pre></div>
 <p>Development version (<a href="https://github.com/dieghernan/giscoR/">Github</a>):</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://remotes.r-lib.org">remotes</a></span><span class="op">)</span>
@@ -155,31 +156,6 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/giscoR/">giscoR</a></span><span class="op">)</span>
 <span class="fu"><a href="../reference/gisco_attributions.html">gisco_attributions</a></span><span class="op">(</span>copyright <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     COPYRIGHT NOTICE</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     When data downloaded from GISCO</span>
-<span class="co">#&gt;     is used in any printed or electronic publication,</span>
-<span class="co">#&gt;     in addition to any other provisions applicable to</span>
-<span class="co">#&gt;     the whole Eurostat website, data source will have</span>
-<span class="co">#&gt;     to be acknowledged in the legend of the map and in</span>
-<span class="co">#&gt;     the introductory page of the publication with the</span>
-<span class="co">#&gt;     following copyright notice:</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     - EN: (C) EuroGeographics for the administrative boundaries</span>
-<span class="co">#&gt;     - FR: (C) EuroGeographics pour les limites administratives</span>
-<span class="co">#&gt;     - DE: (C) EuroGeographics bezuglich der Verwaltungsgrenzen</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     For publications in languages other than English,</span>
-<span class="co">#&gt;     French or German, the translation of the copyright</span>
-<span class="co">#&gt;     notice in the language of the publication shall be</span>
-<span class="co">#&gt;     used.</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     If you intend to use the data commercially, please</span>
-<span class="co">#&gt;     contact EuroGeographics for information regarding</span>
-<span class="co">#&gt;     their licence agreements.</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; </span>
 <span class="co">#&gt; [1] "© EuroGeographics for the administrative boundaries"</span></code></pre></div>
 </div>
 <div id="basic-example" class="section level1">
@@ -189,20 +165,30 @@
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/">sf</a></span><span class="op">)</span>
-<span class="co">#&gt; Linking to GEOS 3.8.1, GDAL 3.1.4, PROJ 6.3.1</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/mtennekes/tmap">tmap</a></span><span class="op">)</span> <span class="co"># Use tmap for plotting</span>
+
 
 <span class="va">countries</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gisco_get.html">gisco_get_countries</a></span><span class="op">(</span>region <span class="op">=</span> <span class="st">"Asia"</span><span class="op">)</span>
 
-<span class="fu"><a href="https://r-spatial.github.io/sf/reference/plot.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html">st_geometry</a></span><span class="op">(</span><span class="va">countries</span><span class="op">)</span>, axes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/title.html">title</a></span><span class="op">(</span>sub <span class="op">=</span> <span class="fu"><a href="../reference/gisco_attributions.html">gisco_attributions</a></span><span class="op">(</span>copyright <span class="op">=</span> <span class="st">"FALSE"</span><span class="op">)</span>, cex.sub <span class="op">=</span> <span class="fl">0.7</span><span class="op">)</span></code></pre></div>
-<p><img src="giscoR_files/figure-html/country_reg-1.png" width="672"></p>
+<span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tmap_style.html">tmap_style</a></span><span class="op">(</span><span class="st">"classic"</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">countries</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_grid.html">tm_graticules</a></span><span class="op">(</span>lines <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_polygons</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_credits.html">tm_credits</a></span><span class="op">(</span><span class="fu"><a href="../reference/gisco_attributions.html">gisco_attributions</a></span><span class="op">(</span>copyright <span class="op">=</span> <span class="st">"FALSE"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_layout.html">tm_layout</a></span><span class="op">(</span>main.title <span class="op">=</span> <span class="st">"Countries of Asia"</span>,
+            attr.outside <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<p><img src="giscoR_files/figure-html/country_reg-1.png" width="100%" height="60%"></p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tmap_options.html">tmap_options_reset</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>You can select specific countries by name (in any language), ISO 3 codes or Eurostat codes. The only restriction is that you can’t mix country names, ISO3 and Eurostat codes on one single call.</p>
 <p>It is possible also to combine different shapefiles, just set <code>resolution</code> and <code>epsg</code> (and optionally <code>year</code>) to the same value:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="va">africa_north</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="../reference/gisco_get.html">gisco_get_countries</a></span><span class="op">(</span>
-    country <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Argelia"</span>, <span class="st">"Morocco"</span>, <span class="st">"Egipto"</span>, <span class="st">"Tunisia"</span>, <span class="st">"Libia"</span><span class="op">)</span>,
+    country <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Morocco"</span>, <span class="st">"Argelia"</span>, <span class="st">"Libia"</span>, <span class="st">"Tunisia"</span>, <span class="st">"Egypt"</span><span class="op">)</span>,
     resolution <span class="op">=</span> <span class="st">"20"</span>,
     epsg <span class="op">=</span> <span class="st">"4326"</span>,
     year <span class="op">=</span> <span class="st">"2016"</span>
@@ -214,26 +200,29 @@
                                 epsg <span class="op">=</span> <span class="st">"4326"</span>,
                                 year <span class="op">=</span> <span class="st">"2016"</span><span class="op">)</span>
 
-<span class="fu"><a href="https://r-spatial.github.io/sf/reference/plot.html">plot</a></span><span class="op">(</span>
-  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html">st_geometry</a></span><span class="op">(</span><span class="va">africa_north</span><span class="op">)</span>,
-  axes <span class="op">=</span> <span class="cn">TRUE</span>,
-  col <span class="op">=</span> <span class="st">"grey30"</span>,
-  border <span class="op">=</span> <span class="st">"grey80"</span>
-<span class="op">)</span>
-<span class="fu"><a href="https://r-spatial.github.io/sf/reference/plot.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html">st_geometry</a></span><span class="op">(</span><span class="va">coast</span><span class="op">)</span>, lwd <span class="op">=</span> <span class="fl">2</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/title.html">title</a></span><span class="op">(</span>sub <span class="op">=</span> <span class="fu"><a href="../reference/gisco_attributions.html">gisco_attributions</a></span><span class="op">(</span><span class="op">)</span>, cex.sub <span class="op">=</span> <span class="fl">0.7</span><span class="op">)</span></code></pre></div>
-<p><img src="giscoR_files/figure-html/africa_north-1.png" width="672"></p>
+<span class="co"># Plot</span>
+
+<span class="co"># Coastline</span>
+<span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">coast</span>, bbox <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">13</span>, <span class="fl">18.5</span>, <span class="fl">37</span>, <span class="fl">40</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill</a></span><span class="op">(</span>col <span class="op">=</span> <span class="st">"grey80"</span><span class="op">)</span>  <span class="op">+</span>
+  <span class="co"># Shape of Africa</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">africa_north</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_polygons</a></span><span class="op">(</span>col <span class="op">=</span> <span class="st">"grey30"</span>, border.col <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span>  <span class="op">+</span>
+  <span class="co"># Facets</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_facets.html">tm_facets</a></span><span class="op">(</span>by <span class="op">=</span> <span class="st">"NAME_ENGL"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_credits.html">tm_credits</a></span><span class="op">(</span><span class="fu"><a href="../reference/gisco_attributions.html">gisco_attributions</a></span><span class="op">(</span>copyright <span class="op">=</span> <span class="st">"FALSE"</span><span class="op">)</span>,
+             position <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"right"</span>, <span class="st">"bottom"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_layout.html">tm_layout</a></span><span class="op">(</span>attr.outside <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<p><img src="giscoR_files/figure-html/africa_north-1.png" width="100%" height="60%"></p>
 </div>
 <div id="plotting-giscor" class="section level1">
 <h1 class="hasAnchor">
 <a href="#plotting-giscor" class="anchor"></a>Plotting <code>giscoR</code>
 </h1>
-<p>This is an example on how <code>giscoR</code> can play nicely with some Eurostat data. For plotting purposes we would use the <a href="https://riatelab.github.io/cartography/docs/index.html"><code>cartography</code> package</a>, however any package that handles <code>sf</code> objects (e.g. <code>ggplot2</code>, <code>tmap</code>, <code>leaflet</code>, etc. could be used).</p>
+<p>This is an example on how <code>giscoR</code> can play nicely with some Eurostat data. For plotting purposes we would use the <a href="https://mtennekes.github.io/tmap/"><code>tmap</code> package</a>, however any package that handles <code>sf</code> objects (e.g. <code>ggplot2</code>, <code>mapsf</code>, <code>leaflet</code>, etc. could be used).</p>
 <p>Also <code>colorspace</code> and <code>rcartocolor</code> packages are recommended, as they provide great color palettes.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
-
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/cartography/">cartography</a></span><span class="op">)</span>
 
 <span class="va">nuts2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gisco_get.html">gisco_get_nuts</a></span><span class="op">(</span>
   year <span class="op">=</span> <span class="st">"2016"</span>,
@@ -252,78 +241,46 @@
 
 <span class="co"># Eurostat data - Purchase parity power</span>
 <span class="va">pps</span> <span class="op">&lt;-</span> <span class="fu">giscoR</span><span class="fu">::</span><span class="va"><a href="../reference/tgs00026.html">tgs00026</a></span>
-<span class="va">pps</span> <span class="op">&lt;-</span> <span class="va">pps</span><span class="op">[</span><span class="va">pps</span><span class="op">$</span><span class="va">time</span> <span class="op">==</span> <span class="fl">2016</span>,<span class="op">]</span>
+<span class="va">pps</span> <span class="op">&lt;-</span> <span class="va">pps</span><span class="op">[</span><span class="va">pps</span><span class="op">$</span><span class="va">time</span> <span class="op">==</span> <span class="fl">2016</span>, <span class="op">]</span>
 
 <span class="va">nuts2.sf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html">merge</a></span><span class="op">(</span><span class="va">nuts2</span>,
                   <span class="va">pps</span>,
                   by.x <span class="op">=</span> <span class="st">"NUTS_ID"</span>,
                   by.y <span class="op">=</span> <span class="st">"geo"</span>,
                   all.x <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-
-<span class="co"># Prepare mapping</span>
-<span class="va">br</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/cartography/man/getBreaks.html">getBreaks</a></span><span class="op">(</span><span class="va">nuts2.sf</span><span class="op">$</span><span class="va">values</span>, method <span class="op">=</span> <span class="st">"fisher"</span><span class="op">)</span>
-<span class="va">pal</span> <span class="op">&lt;-</span>
-  <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html">hcl.colors</a></span><span class="op">(</span>n <span class="op">=</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">br</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span>,
-             palette <span class="op">=</span> <span class="st">"inferno"</span>,
-             alpha <span class="op">=</span> <span class="fl">0.75</span><span class="op">)</span>
-
 <span class="co"># Plot</span>
-<span class="va">opar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>no.readonly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>
 
-<span class="co"># Basemap - BENELUX</span>
-<span class="fu"><a href="https://r-spatial.github.io/sf/reference/plot.html">plot</a></span><span class="op">(</span>
-  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html">st_geometry</a></span><span class="op">(</span><span class="va">nuts2</span><span class="op">)</span>,
-  col <span class="op">=</span> <span class="st">"grey80"</span>,
-  xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">9</span><span class="op">)</span>,
-  ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">47</span>, <span class="fl">55</span><span class="op">)</span>
-<span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/pkg/cartography/man/choroLayer.html">choroLayer</a></span><span class="op">(</span>
-  <span class="va">nuts2.sf</span>,
-  var <span class="op">=</span> <span class="st">"values"</span>,
-  border <span class="op">=</span> <span class="st">"grey50"</span>,
-  breaks <span class="op">=</span> <span class="va">br</span>,
-  col <span class="op">=</span> <span class="va">pal</span>,
-  legend.pos <span class="op">=</span> <span class="st">"n"</span>,
-  colNA <span class="op">=</span> <span class="st">"grey80"</span>,
-  add <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span>
-
-<span class="co"># Add borders</span>
-<span class="fu"><a href="https://r-spatial.github.io/sf/reference/plot.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html">st_geometry</a></span><span class="op">(</span><span class="va">borders</span><span class="op">)</span>,
-     border <span class="op">=</span> <span class="st">"black"</span>,
-     col <span class="op">=</span> <span class="cn">NA</span>,
-     add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-
-
-<span class="va">labs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="op">(</span><span class="va">br</span> <span class="op">/</span> <span class="fl">1000</span><span class="op">)</span>, <span class="fl">1</span><span class="op">)</span>, <span class="st">"K EUR"</span><span class="op">)</span>
-<span class="va">labs</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">""</span>
-<span class="va">labs</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">labs</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">""</span>
-
-<span class="fu"><a href="https://rdrr.io/pkg/cartography/man/legendChoro.html">legendChoro</a></span><span class="op">(</span>
-  pos <span class="op">=</span> <span class="st">"bottomright"</span>,
-  title.txt <span class="op">=</span> <span class="cn">NA</span>,
-  breaks <span class="op">=</span> <span class="va">labs</span>,
-  col <span class="op">=</span> <span class="va">pal</span>,
-  nodata.col <span class="op">=</span> <span class="st">"grey80"</span>,
-  frame <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/pkg/cartography/man/layoutLayer.html">layoutLayer</a></span><span class="op">(</span>
-  <span class="st">"Disposable Incoming Households 2016 (BENELUX focus)"</span>,
-  scale <span class="op">=</span> <span class="cn">FALSE</span>,
-  col <span class="op">=</span> <span class="va">pal</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>,
-  sources <span class="op">=</span> <span class="fu"><a href="../reference/gisco_attributions.html">gisco_attributions</a></span><span class="op">(</span><span class="op">)</span>
-<span class="op">)</span></code></pre></div>
-<p><img src="giscoR_files/figure-html/giscoR_eurostat-1.png" width="624"></p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span><span class="va">opar</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">nuts2.sf</span>, bbox <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">47</span>, <span class="fl">10</span>, <span class="fl">54</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_polygons</a></span><span class="op">(</span>
+    <span class="st">"values"</span>,
+    pal <span class="op">=</span> <span class="st">"-inferno"</span>,
+    alpha <span class="op">=</span> <span class="fl">0.6</span>,
+    style <span class="op">=</span> <span class="st">"headtails"</span>,
+    style.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>thr <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,
+    showNA <span class="op">=</span> <span class="cn">FALSE</span>,
+    border.alpha <span class="op">=</span> <span class="fl">0.5</span>,
+    border.col <span class="op">=</span> <span class="st">"grey50"</span>,
+    title <span class="op">=</span> <span class="st">"Euro (EUR)"</span>
+  <span class="op">)</span> <span class="op">+</span>
+  <span class="co"># Add borders</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">borders</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span><span class="op">(</span>col <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="co"># Credits and format</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_credits.html">tm_credits</a></span><span class="op">(</span><span class="fu"><a href="../reference/gisco_attributions.html">gisco_attributions</a></span><span class="op">(</span><span class="op">)</span>,
+             position <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"right"</span>, <span class="st">"bottom"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_layout.html">tm_layout</a></span><span class="op">(</span>
+    main.title <span class="op">=</span> <span class="st">"Disposable Incoming Households 2016 (BENELUX Focus)"</span>,
+    main.title.size <span class="op">=</span> <span class="fl">0.8</span>,
+    main.title.fontface <span class="op">=</span> <span class="st">"bold"</span>,
+    legend.outside <span class="op">=</span> <span class="cn">TRUE</span>,
+    attr.outside <span class="op">=</span> <span class="cn">TRUE</span>
+  <span class="op">)</span></code></pre></div>
+<p><img src="giscoR_files/figure-html/giscoR_eurostat-1.png" width="100%" height="60%"></p>
 <div id="session-info" class="section level2">
 <h2 class="hasAnchor">
 <a href="#session-info" class="anchor"></a>Session Info</h2>
 <details><p><summary><strong>Details</strong></summary></p>
-<pre><code>#&gt; R version 4.0.4 (2021-02-15)
+<pre><code>#&gt; R version 4.0.5 (2021-03-31)
 #&gt; Platform: x86_64-apple-darwin17.0 (64-bit)
 #&gt; Running under: macOS Catalina 10.15.7
 #&gt; 
@@ -338,22 +295,27 @@
 #&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     
 #&gt; 
 #&gt; other attached packages:
-#&gt; [1] cartography_2.4.2 sf_0.9-7          giscoR_0.2.3.9000
+#&gt; [1] tmap_3.3-1        sf_0.9-8          giscoR_0.2.3.9000
 #&gt; 
 #&gt; loaded via a namespace (and not attached):
-#&gt;  [1] Rcpp_1.0.6         highr_0.8          compiler_4.0.4     pillar_1.4.6      
-#&gt;  [5] class_7.3-18       tools_4.0.4        digest_0.6.27      lattice_0.20-41   
-#&gt;  [9] evaluate_0.14      memoise_1.1.0      lifecycle_0.2.0    tibble_3.0.4      
-#&gt; [13] pkgconfig_2.0.3    rlang_0.4.10       DBI_1.1.1          yaml_2.2.1        
-#&gt; [17] pkgdown_1.6.1      xfun_0.21          e1071_1.7-4        stringr_1.4.0     
-#&gt; [21] dplyr_1.0.2        knitr_1.31         rgeos_0.5-5        desc_1.2.0        
-#&gt; [25] generics_0.0.2     fs_1.5.0           vctrs_0.3.4        systemfonts_0.3.2 
-#&gt; [29] classInt_0.4-3     rprojroot_1.3-2    grid_4.0.4         tidyselect_1.1.0  
-#&gt; [33] glue_1.4.2         R6_2.4.1           textshaping_0.2.1  rmarkdown_2.7     
-#&gt; [37] sp_1.4-5           purrr_0.3.4        magrittr_2.0.1     backports_1.1.10  
-#&gt; [41] htmltools_0.5.1.1  ellipsis_0.3.1     units_0.7-0        assertthat_0.2.1  
-#&gt; [45] countrycode_1.2.0  ragg_0.4.1         KernSmooth_2.23-18 stringi_1.5.3     
-#&gt; [49] crayon_1.3.4</code></pre>
+#&gt;  [1] Rcpp_1.0.6         countrycode_1.2.0  lattice_0.20-41    png_0.1-7         
+#&gt;  [5] class_7.3-18       assertthat_0.2.1   rprojroot_1.3-2    digest_0.6.27     
+#&gt;  [9] utf8_1.2.1         R6_2.5.0           backports_1.1.10   evaluate_0.14     
+#&gt; [13] e1071_1.7-6        highr_0.8          pillar_1.5.1       rlang_0.4.10      
+#&gt; [17] raster_3.4-5       rmarkdown_2.7      pkgdown_1.6.1      textshaping_0.2.1 
+#&gt; [21] desc_1.2.0         stringr_1.4.0      htmlwidgets_1.5.3  proxy_0.4-25      
+#&gt; [25] compiler_4.0.5     xfun_0.22          pkgconfig_2.0.3    tmaptools_3.1-1   
+#&gt; [29] systemfonts_0.3.2  base64enc_0.1-3    htmltools_0.5.1.1  tidyselect_1.1.0  
+#&gt; [33] tibble_3.1.0       codetools_0.2-18   XML_3.99-0.6       fansi_0.4.2       
+#&gt; [37] viridisLite_0.3.0  crayon_1.4.1       dplyr_1.0.2        grid_4.0.5        
+#&gt; [41] lwgeom_0.2-6       lifecycle_1.0.0    DBI_1.1.1          magrittr_2.0.1    
+#&gt; [45] units_0.7-1        KernSmooth_2.23-18 stringi_1.5.3      fs_1.5.0          
+#&gt; [49] leafsync_0.1.0     leaflet_2.0.4.1    sp_1.4-5           ellipsis_0.3.1    
+#&gt; [53] ragg_0.4.1         generics_0.0.2     vctrs_0.3.7        RColorBrewer_1.1-2
+#&gt; [57] tools_4.0.5        dichromat_2.0-0    leafem_0.1.3       glue_1.4.2        
+#&gt; [61] purrr_0.3.4        crosstalk_1.1.1    abind_1.4-5        parallel_4.0.5    
+#&gt; [65] yaml_2.2.1         stars_0.5-2        classInt_0.4-3     memoise_1.1.0     
+#&gt; [69] knitr_1.31</code></pre>
 </details>
 </div>
 </div>
