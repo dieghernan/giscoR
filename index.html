@@ -187,11 +187,26 @@
   <span class="op">)</span></code></pre></div>
 <p><img src="https://raw.githubusercontent.com/dieghernan/giscoR/master/img/README-example-2.svg" width="100%"></p>
 </div>
+<div id="labels" class="section level2">
+<h2 class="hasAnchor">
+<a href="#labels" class="anchor"></a>Labels</h2>
+<p>An example of a labeled map using <code>tmap</code>:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">ITA</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/gisco_get.html">gisco_get_nuts</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"Italy"</span>, nuts_level <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
+
+
+<span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">ITA</span>, point.per <span class="op">=</span> <span class="st">"feature"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_polygons</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_text.html">tm_text</a></span><span class="op">(</span><span class="st">"NAME_LATN"</span>,
+    auto.placement <span class="op">=</span> <span class="cn">TRUE</span>
+  <span class="op">)</span></code></pre></div>
+<p><img src="https://raw.githubusercontent.com/dieghernan/giscoR/master/img/README-labels-1.svg" width="100%"></p>
+</div>
 <div id="thematic-maps" class="section level2">
 <h2 class="hasAnchor">
 <a href="#thematic-maps" class="anchor"></a>Thematic maps</h2>
 <p>An example of a thematic map plotted with the <code>cartography</code> package. The information is extracted via the <code>eurostat</code> package:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">nuts3</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/gisco_get.html">gisco_get_nuts</a></span><span class="op">(</span>
   year <span class="op">=</span> <span class="st">"2016"</span>,
   epsg <span class="op">=</span> <span class="st">"3035"</span>,
@@ -204,13 +219,13 @@
   <span class="fu"><a href="reference/gisco_get.html">gisco_get_countries</a></span><span class="op">(</span>
     year <span class="op">=</span> <span class="st">"2016"</span>,
     epsg <span class="op">=</span> <span class="st">"3035"</span>,
-    resolution <span class="op">=</span> <span class="st">"10"</span>
+    resolution <span class="op">=</span> <span class="st">"3"</span>
   <span class="op">)</span>
 
 <span class="co"># Use eurostat</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ropengov.github.io/eurostat">eurostat</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">eurostat</span><span class="op">)</span>
 
-<span class="va">popdens</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ropengov.github.io/eurostat/reference/get_eurostat.html">get_eurostat</a></span><span class="op">(</span><span class="st">"demo_r_d3dens"</span><span class="op">)</span>
+<span class="va">popdens</span> <span class="op">&lt;-</span> <span class="fu">get_eurostat</span><span class="op">(</span><span class="st">"demo_r_d3dens"</span><span class="op">)</span>
 <span class="va">popdens</span> <span class="op">&lt;-</span> <span class="va">popdens</span><span class="op">[</span><span class="va">popdens</span><span class="op">$</span><span class="va">time</span> <span class="op">==</span> <span class="st">"2018-01-01"</span>, <span class="op">]</span>
 
 
@@ -225,7 +240,7 @@
 <span class="va">br</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">25</span>, <span class="fl">50</span>, <span class="fl">100</span>, <span class="fl">200</span>, <span class="fl">500</span>, <span class="fl">1000</span>, <span class="fl">2500</span>, <span class="fl">5000</span>, <span class="fl">10000</span>, <span class="fl">30000</span><span class="op">)</span>
 
 <span class="co"># Plot</span>
-<span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">countries</span>, bbox <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">23</span>, <span class="fl">14</span>, <span class="fl">73</span>, <span class="fl">54</span><span class="op">)</span> <span class="op">*</span> <span class="fl">10e4</span><span class="op">)</span> <span class="op">+</span>
+<span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">countries</span>, bbox <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">23</span>, <span class="fl">14</span>, <span class="fl">74</span>, <span class="fl">55</span><span class="op">)</span> <span class="op">*</span> <span class="fl">10e4</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill</a></span><span class="op">(</span><span class="st">"#E0E0E0"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">nuts3.sf</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill</a></span><span class="op">(</span>
@@ -236,7 +251,7 @@
     title <span class="op">=</span> <span class="st">"Population density (km2)\nNUTS3 (2018)"</span>
   <span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">countries</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span><span class="op">(</span>lwd <span class="op">=</span> <span class="fl">.25</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_credits.html">tm_credits</a></span><span class="op">(</span><span class="fu"><a href="reference/gisco_attributions.html">gisco_attributions</a></span><span class="op">(</span><span class="op">)</span>,
     position <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"left"</span>, <span class="st">"bottom"</span><span class="op">)</span>
   <span class="op">)</span> <span class="op">+</span>
@@ -249,7 +264,7 @@
     inner.margins <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>,
     outer.margins <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>,
     frame <span class="op">=</span> <span class="cn">TRUE</span>,
-    frame.lwd <span class="op">=</span> <span class="fl">0.01</span>,
+    frame.lwd <span class="op">=</span> <span class="fl">0</span>,
     attr.outside <span class="op">=</span> <span class="cn">TRUE</span>
   <span class="op">)</span></code></pre></div>
 <p><img src="https://raw.githubusercontent.com/dieghernan/giscoR/master/img/README-thematic-1.svg" width="100%"></p>
@@ -257,7 +272,7 @@
 <h3 class="hasAnchor">
 <a href="#a-note-on-caching" class="anchor"></a>A note on caching</h3>
 <p>Some data sets (as Local Administrative Units - LAU, or high-resolution files) may have a size larger than 50MB. You can use <code>giscoR</code> to create your own local repository at a given local directory passing the following option:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>gisco_cache_dir <span class="op">=</span> <span class="st">"./path/to/location"</span><span class="op">)</span></code></pre></div>
 <p>When this option is set, <code>giscoR</code> would look for the cached file and it will load it, speeding up the process.</p>
 <p>You can also download manually the files (<code>.geojson</code> format) and store them on your local directory.</p>
