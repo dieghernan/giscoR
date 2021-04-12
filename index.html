@@ -192,20 +192,18 @@
 <a href="#labels" class="anchor"></a>Labels</h2>
 <p>An example of a labeled map using <code>tmap</code>:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ITA</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/gisco_get.html">gisco_get_nuts</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"Italy"</span>, nuts_level <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">ITA</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/gisco_get.html">gisco_get_nuts</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"Italy"</span>, nuts_level <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
 
 
 <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">ITA</span>, point.per <span class="op">=</span> <span class="st">"feature"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_polygons</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_text.html">tm_text</a></span><span class="op">(</span><span class="st">"NAME_LATN"</span>,
-    auto.placement <span class="op">=</span> <span class="cn">TRUE</span>
-  <span class="op">)</span></code></pre></div>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_text.html">tm_text</a></span><span class="op">(</span><span class="st">"NAME_LATN"</span><span class="op">)</span></code></pre></div>
 <p><img src="https://raw.githubusercontent.com/dieghernan/giscoR/master/img/README-labels-1.svg" width="100%"></p>
 </div>
 <div id="thematic-maps" class="section level2">
 <h2 class="hasAnchor">
 <a href="#thematic-maps" class="anchor"></a>Thematic maps</h2>
-<p>An example of a thematic map plotted with the <code>cartography</code> package. The information is extracted via the <code>eurostat</code> package:</p>
+<p>An example of a thematic map plotted with the <code>tmap</code> package. The information is extracted via the <code>eurostat</code> package:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">nuts3</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/gisco_get.html">gisco_get_nuts</a></span><span class="op">(</span>
   year <span class="op">=</span> <span class="st">"2016"</span>,
