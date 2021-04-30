@@ -56,7 +56,40 @@
 
 <meta property="og:title" content="Get geospatial data from GISCO API — gisco_get" />
 <meta property="og:description" content="Loads a simple feature (sf) object from GISCO API entry point or your
-local library." />
+local library.
+gisco_get_coastallines() downloads coastlines of the whole world.
+
+
+
+gisco_get_communes() and gisco_get_lau() download shapes of Local
+Urban Areas, that correspond roughly with towns and cities.
+
+
+
+gisco_get_countries() downloads shapes of countries and other areas on
+dispute. Also, specific areas as Gibraltar or Antarctica are presented
+separately. The definition of country used on GISCO correspond roughly with
+territories with an official
+ISO-3166
+code.
+
+
+
+gisco_get_nuts() downloads shapes of
+NUTS
+units. NUTS are provided at 3 different levels (0: country,
+1: Groups of states/regions, 2: States/regions,
+3: Counties/provinces/districts). NUTS-level definition vary across
+countries.
+
+
+
+gisco_get_urban_audit() downloads shapes of cities, greater cities and
+metropolitan areas included on the
+Urban Audit report
+of Eurostat.
+
+" />
 <meta property="og:image" content="https://dieghernan.github.io/giscoR/logo.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@dhernangomez" />
@@ -169,7 +202,40 @@ local library." />
 
     <div class="ref-description">
     <p>Loads a simple feature (<code>sf</code>) object from GISCO API entry point or your
-local library.</p>
+local library.</p><ul>
+<li><p><code>gisco_get_coastallines()</code> downloads coastlines of the whole world.</p></li>
+</ul>
+
+<ul>
+<li><p><code>gisco_get_communes()</code> and <code>gisco_get_lau()</code> download shapes of Local
+Urban Areas, that correspond roughly with towns and cities.</p></li>
+</ul>
+
+<ul>
+<li><p><code>gisco_get_countries()</code> downloads shapes of countries and other areas on
+dispute. Also, specific areas as Gibraltar or Antarctica are presented
+separately. The definition of country used on GISCO correspond roughly with
+territories with an official
+<a href='https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes'>ISO-3166</a>
+code.</p></li>
+</ul>
+
+<ul>
+<li><p><code>gisco_get_nuts()</code> downloads shapes of
+<a href='https://en.wikipedia.org/wiki/Nomenclature_of_Territorial_Units_for_Statistics'>NUTS</a>
+units. NUTS are provided at 3 different levels (0: country,
+1: Groups of states/regions, 2: States/regions,
+3: Counties/provinces/districts). NUTS-level definition vary across
+countries.</p></li>
+</ul>
+
+<ul>
+<li><p><code>gisco_get_urban_audit()</code> downloads shapes of cities, greater cities and
+metropolitan areas included on the
+<a href='https://ec.europa.eu/eurostat/web/regions-and-cities'>Urban Audit report</a>
+of Eurostat.</p></li>
+</ul>
+
     </div>
 
     <pre class="usage"><span class='fu'>gisco_get_coastallines</span><span class='op'>(</span>
