@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   giscoR: giscoR.html
   nuts_codes: nuts_codes.html
-last_built: 2021-05-28T15:56Z
+last_built: 2021-06-08T07:23Z
 urls:
   reference: https://dieghernan.github.io/giscoR/reference
   article: https://dieghernan.github.io/giscoR/articles
